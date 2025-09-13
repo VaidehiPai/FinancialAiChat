@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Financial Advisor AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            color-scheme: light dark; 
+            --primary: #059669;
+            --primary-dark: #047857;
+            --accent: #10b981;
+            --warning: #dc2626;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: canvas;
+            color: canvastext;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100svh;
+        }
+        header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--line, #e5e7eb22);
+            display: flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+        }
+        header h1 { font-size: 20px; margin: 0; font-weight: 600; }
+        header .subtitle { font-size: 14px; opacity: 0.9; margin-left: 8px; }
+        main { max-width: 900px; width: 100%; margin: 0 auto; padding: 16px; display: grid; grid-template-rows: 1fr auto; gap: 12px; }
+        #messages { overflow: auto; display: flex; flex-direction: column; gap: 12px; padding: 4px; }
+        .msg { padding: 12px 14px; border: 1px solid #e5e7eb22; border-radius: 12px; max-width: 85%; white-space: pre-wrap; }
+        .user { align-self: flex-end; background: var(--primary)22; border-color: var(--primary)44; }
+        .bot { align-self: flex-start; background: #f3f4f622; border-color: #e5e7eb44; }
+        form { display: flex; gap: 8px; padding: 8px; border-top: 1px solid var(--line, #e5e7eb22); position: sticky; bottom: 0; background: canvas; }
+        textarea { flex: 1; resize: none; height: 56px; padding: 12px; border-radius: 10px; border: 1px solid #e5e7eb66; background: canvas; color: canvastext; }
+        button { padding: 0 16px; border-radius: 10px; border: 1px solid var(--primary); background: var(--primary); color: white; font-weight: 600; cursor: pointer; }
+        button:hover { background: var(--primary-dark); }
+        button[disabled] { opacity: .6; cursor: not-allowed; }
+        footer { padding: 8px 16px; font-size: 12px; color: #6b7280; text-align: center; }
+        .disclaimer { 
+            background: #fef3c722; 
+            border: 1px solid #f59e0b44; 
+            border-radius: 8px; 
+            padding: 12px; 
+            margin: 16px 0; 
+            font-size: 13px; 
+            color: #92400e;
+            text-align: center;
+        }
+        .welcome-msg {
+            background: var(--accent)22;
+            border: 1px solid var(--accent)44;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>💰 Financial Advisor AI</h1>
+            <div class="subtitle">Your AI-powered financial education companion</div>
+        </div>
+    </header>
+    <main>
+        <div class="welcome-msg">
+            <strong>Welcome to your financial consultation!</strong><br>
+            I can help you with budgeting, investing, retirement planning, and more. 
+            Ask me anything about personal finance!
+        </div>
+        <div class="disclaimer">
+            ⚠️ <strong>Disclaimer:</strong> This is for educational purposes only. 
+            Not financial advice. Consult qualified professionals for personalized guidance.
+        </div>
+        <div id="messages" aria-live="polite"></div>
+        <form id="chat-form">
+            <textarea id="input" placeholder="Ask about budgeting, investing, retirement planning..." required></textarea>
+            <button id="send" type="submit">Send</button>
+        </form>
+    </main>
+    <footer>
+        Powered by Groq Llama 3 • Financial Education Assistant
+    </footer>
+    <script src="/app.js" defer></script>
+</body>
+</html>
+
+
