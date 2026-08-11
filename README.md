@@ -94,7 +94,7 @@ financial-advisor-chatbot/
 python chatbot.py
 ```
 
-## 💡 Example Questions
+##  Example Questions
 
 - "How do I create a budget?"
 - "What should I know about 401(k) plans?"
